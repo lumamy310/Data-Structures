@@ -112,8 +112,8 @@ public class Graph {
             System.out.print(stack.pop() + " ");
     }
 
-    Graph reverseGraph(){
-        Graph reversedGraph = new Graph(numVertices);
+    GraphFordFulkerson reverseGraph(){
+        GraphFordFulkerson reversedGraph = new GraphFordFulkerson(numVertices);
         for(int vertex=0; vertex < numVertices; vertex++){
             Iterator<Integer> i = adjacencyList[vertex].listIterator();
             while(i.hasNext()){
@@ -149,7 +149,7 @@ public class Graph {
             }
         }
 
-        Graph reversedGraph = reverseGraph();
+        GraphFordFulkerson reversedGraph = reverseGraph();
 
         for(int i=0; i<numVertices; i++){
             searched[i] = false;
@@ -165,7 +165,7 @@ public class Graph {
     }
 
     public static void main(String[] args){
-        Graph G = new Graph(12);
+        GraphFordFulkerson G = new GraphFordFulkerson(12);
         G.addEdge(0,11);
         G.addEdge(1,7);
         G.addEdge(2,3);
@@ -198,17 +198,17 @@ public class Graph {
 
 
         System.out.println("Breadth First Search on G, root = 7, searching for 8: ");
-        G.DFS(7, 8, searched);
+        G.BFS(7, 8, searched);
         Arrays.fill(searched, false);
-        System.out.println("");
+        System.out.println("\n");
 
         System.out.println("Breadth First Search on G, root = 6, searching for 5: ");
-        G.DFS(6, 5, searched);
+        G.BFS(6, 5, searched);
         Arrays.fill(searched, false);
         System.out.println("\n");
 
         System.out.println("Breadth First Search on G, root = 2, searching for 1: ");
-        G.DFS(2, 1, searched);
+        G.BFS(2, 1, searched);
         Arrays.fill(searched, false);
         System.out.println("\n");
 
@@ -216,7 +216,7 @@ public class Graph {
         G.topSort();
         System.out.println("\n");
 
-        Graph F = new Graph(12);
+        GraphFordFulkerson F = new GraphFordFulkerson(12);
         F.addEdge(0,1);
         F.addEdge(0,11);
         F.addEdge(2,1);
