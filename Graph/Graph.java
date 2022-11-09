@@ -34,8 +34,7 @@ public class Graph {
                 dfsSCC(next, searched);
         }
     }
-    //does not tell you if vertex was not found, only if it was found
-    //keeps checking after vertex was found
+
     void DFS(int vertex, int searchFor, boolean[] searched){
         searched[vertex] = true;
         System.out.print("Checking vertex: " + vertex + " ");
