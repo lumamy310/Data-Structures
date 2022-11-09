@@ -41,15 +41,21 @@ public class Graph {
         System.out.print("Checking vertex: " + vertex + " ");
         if(vertex == searchFor){
             System.out.println("FOUND: " + searchFor);
+            return;
         }
 
         int next;
         Iterator<Integer> i = adjacencyList[vertex].iterator();
-        while(i.hasNext()){
+        while(i.hasNext()) {
             next = i.next();
-            if(!searched[next])
-                DFS(next, searchFor, searched);
-        }
+            System.out.print("Checking vertex: " + next + " ");
+            if (next == searchFor) {
+                System.out.println("FOUND: " + searchFor);
+                break;
+            }
+                if (!searched[next])
+                    DFS(next, searchFor, searched);
+            }
     }
 
     void BFS(int vertex, int searchFor, boolean[] searched){
