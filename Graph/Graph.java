@@ -47,8 +47,8 @@ public class Graph {
         Iterator<Integer> i = adjacencyList[vertex].iterator();
         while(i.hasNext()) {
             next = i.next();
-            System.out.print("Checking vertex: " + next + " ");
             if (next == searchFor) {
+                System.out.print("Checking vertex: " + next + " ");
                 System.out.println("FOUND: " + searchFor);
                 break;
             }
@@ -111,8 +111,8 @@ public class Graph {
             System.out.print(stack.pop() + " ");
     }
 
-    GraphFordFulkerson reverseGraph(){
-        GraphFordFulkerson reversedGraph = new GraphFordFulkerson(numVertices);
+    Graph reverseGraph(){
+        Graph reversedGraph = new Graph(numVertices);
         for(int vertex=0; vertex < numVertices; vertex++){
             Iterator<Integer> i = adjacencyList[vertex].listIterator();
             while(i.hasNext()){
@@ -148,7 +148,7 @@ public class Graph {
             }
         }
 
-        GraphFordFulkerson reversedGraph = reverseGraph();
+        Graph reversedGraph = reverseGraph();
 
         for(int i=0; i<numVertices; i++){
             searched[i] = false;
@@ -164,7 +164,7 @@ public class Graph {
     }
 
     public static void main(String[] args){
-        GraphFordFulkerson G = new GraphFordFulkerson(12);
+        Graph G = new Graph(12);
         G.addEdge(0,11);
         G.addEdge(1,7);
         G.addEdge(2,3);
@@ -188,7 +188,7 @@ public class Graph {
         System.out.println("Depth First Search on G, root = 6, searching for 5: ");
         G.DFS(6, 5, searched);
         Arrays.fill(searched, false);
-        System.out.println("\n");
+        System.out.println("");
 
         System.out.println("Depth First Search on G, root = 2, searching for 1: ");
         G.DFS(2, 1, searched);
@@ -215,7 +215,7 @@ public class Graph {
         G.topSort();
         System.out.println("\n");
 
-        GraphFordFulkerson F = new GraphFordFulkerson(12);
+        Graph F = new Graph(12);
         F.addEdge(0,1);
         F.addEdge(0,11);
         F.addEdge(2,1);
